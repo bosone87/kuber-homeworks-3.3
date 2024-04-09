@@ -1,0 +1,84 @@
+---
+- name: Install kubeadm worker-node-0
+  hosts: worker-node-0
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Update cache & Full system update
+      apt:
+        update_cache: true
+        upgrade: dist
+        cache_valid_time: 3600
+        force_apt_get: true
+    - name: Switch ip_forward
+      shell: "modprobe br_netfilter | echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-iptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-arptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf | sysctl -p /etc/sysctl.conf"
+      changed_when: false
+      ignore_errors: True
+    - name: Install python3
+      apt:
+        pkg:  
+          - python3
+        update_cache: yes
+
+- name: Install kubeadm worker-node-1
+  hosts: worker-node-1
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Update cache & Full system update
+      apt:
+        update_cache: true
+        upgrade: dist
+        cache_valid_time: 3600
+        force_apt_get: true
+    - name: Switch ip_forward
+      shell: "modprobe br_netfilter | echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-iptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-arptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf | sysctl -p /etc/sysctl.conf"
+      changed_when: false
+      ignore_errors: True
+    - name: Install python3
+      apt:
+        pkg:  
+          - python3
+        update_cache: yes
+
+- name: Install kubeadm master-node-0
+  hosts: master-node-0
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Update cache & Full system update
+      apt:
+        update_cache: true
+        upgrade: dist
+        cache_valid_time: 3600
+        force_apt_get: true
+    - name: Switch ip_forward
+      shell: "modprobe br_netfilter | echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-iptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-arptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf | sysctl -p /etc/sysctl.conf"
+      changed_when: false
+      ignore_errors: True
+    - name: Install python3
+      apt:
+        pkg:  
+          - python3
+        update_cache: yes
+
+- name: Install kubeadm master-node-1
+  hosts: master-node-1
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Update cache & Full system update
+      apt:
+        update_cache: true
+        upgrade: dist
+        cache_valid_time: 3600
+        force_apt_get: true
+    - name: Switch ip_forward
+      shell: "modprobe br_netfilter | echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-iptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-arptables=1' >> /etc/sysctl.conf | echo 'net.bridge.bridge-nf-call-ip6tables=1' >> /etc/sysctl.conf | sysctl -p /etc/sysctl.conf"
+      changed_when: false
+      ignore_errors: True
+    - name: Install python3
+      apt:
+        pkg:  
+          - python3
+        update_cache: yes
