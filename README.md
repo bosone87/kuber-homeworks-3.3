@@ -117,7 +117,7 @@ ansible_ssh_private_key_file=/root/.ssh/id_ed25519
 </p>
 
 <p align="center">
-    <img width="1200 height="600" src="/img/np_playbooknp_get_nodes.png">
+    <img width="1200 height="600" src="/img/np_get_nodes.png">
 </p>
 
 <p align="center">
